@@ -1,46 +1,10 @@
-# TS-DETR:Traffic Sign Detection based on Positive and Negative Sample Augmentation
+# TS-DETR: Traffic Sign Detection based on Positive and Negative Sample Augmentation
 
+## Introduction
+TS-DETR is a traffic sign detection model built on DETR, incorporating positive and negative sample augmentation techniques to improve detection performance, especially in imbalanced datasets.
 
-### Install
-We implement TS-DETR using [MMDetection V2.25.3](https://github.com/open-mmlab/mmdetection/releases/tag/v2.25.3) and [MMCV V1.5.0](https://github.com/open-mmlab/mmcv/releases/tag/v1.5.0).
+## Installation
+TS-DETR is implemented using [MMDetection v2.25.3](https://github.com/open-mmlab/mmdetection/releases/tag/v2.25.3) and [MMCV v1.5.0](https://github.com/open-mmlab/mmcv/releases/tag/v1.5.0). To install the required dependencies, use the following command:
 
+```bash
 pip install -r requirements.txt
-
-###dataset
-
-### Data structure
-The COCO dataset and LVIS dataset should be organized as:
-```
-Co-DETR
-└── TT100K
-    ├── coco
-    │   ├── annotations
-    │   │      ├── instances_train2017.json
-    │   │      └── instances_val2017.json
-    │   ├── train2017
-    │   └── val2017
-    │
-   TWTSDB
-    ├── coco
-    │   ├── annotations
-    │   │      ├── instances_train2017.json
-    │   │      └── instances_val2017.json
-    │   ├── train2017
-    │   └── val2017
-    │    
-```
-
-### Training
-Train TS-DETR in TWTSDB:
-bash tools/dist_train.sh projects/configs/co_deformable_detr/MutiAugment98.py 1 TWTSDB/
-
-
-
-### Testing
-Test TS-DETR in TWTSDB:
-bash tools/dist_test.sh  projects/configs/co_deformable_detr/MutiAugment98.py  TWTSDB/latest.pth 1 --eval bbox 
-
-### demo 
-Test TS-DETR in TWTSDB:
-python demo/image_demo.py example.jpg projects/configs/co_deformable_detr/MutiAugment98.py  TWTSDB/latest.pth   --out result.jpg
-
