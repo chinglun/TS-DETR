@@ -9,37 +9,40 @@ pip install -r requirements.txt
 ###dataset
 
 ### Data structure
-The COCO dataset and LVIS dataset should be organized as:
 ```
 Co-DETR
-└── TT100K
+└── TWTSDB
     ├── coco
     │   ├── annotations
     │   │      ├── instances_train2017.json
     │   │      └── instances_val2017.json
     │   ├── train2017
     │   └── val2017
+    │── FP
+    │   └── Negative Sample
     │
-   TWTSDB
-    ├── coco
-    │   ├── annotations
-    │   │      ├── instances_train2017.json
-    │   │      └── instances_val2017.json
-    │   ├── train2017
-    │   └── val2017
-    │    
+    │── crop-twtsdb
 ```
 
 ### Training
 Train TS-DETR in TWTSDB:
-bash tools/dist_train.sh projects/configs/co_deformable_detr/MutiAugment98.py 1 TWTSDB/
+bash tools/dist_train.sh projects/configs/co_dino/MutiAugment98.py 1 My_folder
 
 
 
 ### Testing
 Test TS-DETR in TWTSDB:
-bash tools/dist_test.sh  projects/configs/co_deformable_detr/MutiAugment98.py  TWTSDB/latest.pth 1 --eval bbox 
+bash tools/dist_test.sh  projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50..pth 1 --eval bbox 
 
 ### demo 
-Test TS-DETR in TWTSDB:
-python demo/image_demo.py example.jpg projects/configs/co_deformable_detr/MutiAugment98.py  TWTSDB/latest.pth   --out result.jpg
+Inference Image :
+python demo/image_demo.py demo-result/3256.jpg projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth   --out result.jpg
+
+Inference Folder:
+python demo/folder_demo.py inference_folder projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth  --out-file My_folder
+
+Inference Video:
+python demo/video_demo.py demo-result/example-video1.mp4 projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth  --out example1-result.mp4
+
+calculate Precision,Recall:
+python demo/my_test.py data/coco/val2017 projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth  --out-file test
