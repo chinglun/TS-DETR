@@ -50,7 +50,7 @@ bash tools/dist_test.sh  projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-det
 ### demo 
 Inference Image :
 python demo/image_demo.py demo-result/3256.jpg projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth   --out result.jpg
-![image](https://github.com/chinglun/TS-DETR/blob/c67f402a5aedc47136b0a60c48507026d5b58a1c/demo-result/result.jpg)
+![Demo result of TS-DETR](https://github.com/chinglun/TS-DETR/blob/c67f402a5aedc47136b0a60c48507026d5b58a1c/demo-result/result.jpg)
 Inference Folder:
 python demo/folder_demo.py inference_folder projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth  --out-file My_folder
 
