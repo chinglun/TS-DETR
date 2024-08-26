@@ -34,10 +34,23 @@ bash tools/dist_train.sh projects/configs/co_dino/MutiAugment98.py 1 My_folder
 Test TS-DETR in TWTSDB:
 bash tools/dist_test.sh  projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50..pth 1 --eval bbox 
 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.753
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.931
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.853
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.624
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.825
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.907
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.797
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.797
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.797
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.717
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.840
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.933
+
 ### demo 
 Inference Image :
 python demo/image_demo.py demo-result/3256.jpg projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth   --out result.jpg
-
+![Image text](https://github.com/chinglun/TS-DETR/blob/c67f402a5aedc47136b0a60c48507026d5b58a1c/demo-result/result.jpg)
 Inference Folder:
 python demo/folder_demo.py inference_folder projects/configs/co_dino/MutiAugment98.py TWTSDB-TS-detr/epoch_50.pth  --out-file My_folder
 
