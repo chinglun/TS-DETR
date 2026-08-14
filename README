@@ -1,8 +1,8 @@
-# TS-DETR:Traffic Sign Detection based on Positive and Negative Sample Augmentation
+# CSFormer:Traffic Sign Detection based on Positive and Negative Sample Augmentation
 
 
 ### Install
-We implement TS-DETR using [MMDetection V2.25.3](https://github.com/open-mmlab/mmdetection/releases/tag/v2.25.3) and [MMCV V1.5.0](https://github.com/open-mmlab/mmcv/releases/tag/v1.5.0).
+We implement CSFormer using [MMDetection V2.25.3](https://github.com/open-mmlab/mmdetection/releases/tag/v2.25.3) and [MMCV V1.5.0](https://github.com/open-mmlab/mmcv/releases/tag/v1.5.0).
 
 pip install -r requirements.txt
 
